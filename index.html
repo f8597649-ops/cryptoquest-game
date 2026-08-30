@@ -475,7 +475,18 @@ function startQuest() {
   });
 }
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll("button");
 
+  buttons.forEach(function (button) {
+    if (button.textContent.trim().toLowerCase().includes("start quest")) {
+      button.onclick = function () {
+        alert("Quest started!");
+      };
+    }
+  })
+  })
 
 </script>
 
