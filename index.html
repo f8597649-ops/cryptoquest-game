@@ -399,73 +399,18 @@ function attack() {
 
   document.getElementById("hpText").innerText =
     enemyHP;
-
-  if (enemyHP === 0) {
-    coins += 50;
-    wins++;
-    battles++;
-
-    document.getElementById("coins").innerText = coins;
-    document.getElementById("wins").innerText = wins;
-    document.getElementById("battles").innerText = battles;
-
-    document.getElementById("message").innerText =
-      "🎉 Victory! You defeated the Shadow Hacker and earned 50 coins!";
-  } else {
-    document.getElementById("message").innerText =
-      "⚔ You dealt " + damage + " damage!";
-  }
-}
-
-function startQuest() {<script>
-let coins = 250;
-let enemyHP = 100;
-let battles = 12;
-let wins = 8;
-
-function attack() {
-  if (enemyHP <= 0) {
-    document.getElementById("message").innerText =
-      "The enemy is already defeated! Start a new battle.";
-    return;
-  }
-
-  let damage = Math.floor(Math.random() * 20) + 10;
-
-  enemyHP -= damage;
-
-  if (enemyHP < 0) {
-    enemyHP = 0;
-  }
-
-  document.getElementById("enemyHp").style.width =
-    enemyHP + "%";
-
-  document.getElementById("hpText").innerText =
-    enemyHP;
-
-  if (enemyHP === 0) {
-    coins += 50;
-    wins++;
-    battles++;
-
-    document.getElementById("coins").innerText = coins;
-    document.getElementById("wins").innerText = wins;
-    document.getElementById("battles").innerText = battles;
-
-    document.getElementById("message").innerText =
-      "🎉 Victory! You defeated the Shadow Hacker and earned 50 coins!";
-  } else {
-    document.getElementById("message").innerText =
-      "⚔ You dealt " + damage + " damage!";
-  }
+if (enemyHP === 0) {
+  coins += 50;
+  document.getElementById("coins").innerText = coins;
+  document.getElementById("message").innerText =
+    "🎉 Enemy defeated! +50 coins!";
 }
 
 function startQuest() {
   enemyHP = 100;
 
   document.getElementById("enemyHp").style.width = "100%";
-  document.getElementById("hpText").innerText = "100";
+  document.getElementById("hpText").innerText = enemyHP;
 
   document.getElementById("message").innerText =
     "🚀 Quest started! Defeat the Shadow Hacker!";
@@ -473,37 +418,6 @@ function startQuest() {
   document.querySelector(".battle").scrollIntoView({
     behavior: "smooth"
   });
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll("button");
-
-  buttons.forEach(function (button) {
-    const text = button.textContent.trim().toLowerCase();
-
-    if (text.includes("start quest")) {
-      button.addEventListener("click", function () {
-        if (typeof startQuest === "function") {
-          startQuest();
-        }
-      });
-    }
-
-    if (text.includes("attack")) {
-      button.addEventListener("click", function () {
-        if (typeof attack === "function") {
-          attack();
-        } else if (typeof attackEnemy === "function") {
-          attackEnemy();
-        }
-      });
-    }
-  });
-});
 </script>
-
-
-
-      
-
 </body>
 </html>
