@@ -473,22 +473,37 @@ function startQuest() {
   document.querySelector(".battle").scrollIntoView({
     behavior: "smooth"
   });
-}
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach(function (button) {
-    if (button.textContent.trim().toLowerCase().includes("start quest")) {
-      button.onclick = function () {
-        alert("Quest started!");
-      };
-    }
-  })
-  })
+    const text = button.textContent.trim().toLowerCase();
 
+    if (text.includes("start quest")) {
+      button.addEventListener("click", function () {
+        if (typeof startQuest === "function") {
+          startQuest();
+        }
+      });
+    }
+
+    if (text.includes("attack")) {
+      button.addEventListener("click", function () {
+        if (typeof attack === "function") {
+          attack();
+        } else if (typeof attackEnemy === "function") {
+          attackEnemy();
+        }
+      });
+    }
+  });
+});
 </script>
+
+
+
+      
 
 </body>
 </html>
