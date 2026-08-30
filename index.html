@@ -417,7 +417,76 @@ function attack() {
   }
 }
 
+function startQuest() {<script>
+let coins = 250;
+let enemyHP = 100;
+let battles = 12;
+let wins = 8;
+
+function attack() {
+  if (enemyHP <= 0) {
+    document.getElementById("message").innerText =
+      "The enemy is already defeated! Start a new battle.";
+    return;
+  }
+
+  let damage = Math.floor(Math.random() * 20) + 10;
+
+  enemyHP -= damage;
+
+  if (enemyHP < 0) {
+    enemyHP = 0;
+  }
+
+  document.getElementById("enemyHp").style.width =
+    enemyHP + "%";
+
+  document.getElementById("hpText").innerText =
+    enemyHP;
+
+  if (enemyHP === 0) {
+    coins += 50;
+    wins++;
+    battles++;
+
+    document.getElementById("coins").innerText = coins;
+    document.getElementById("wins").innerText = wins;
+    document.getElementById("battles").innerText = battles;
+
+    document.getElementById("message").innerText =
+      "🎉 Victory! You defeated the Shadow Hacker and earned 50 coins!";
+  } else {
+    document.getElementById("message").innerText =
+      "⚔ You dealt " + damage + " damage!";
+  }
+}
+
 function startQuest() {
+  enemyHP = 100;
+
+  document.getElementById("enemyHp").style.width = "100%";
+  document.getElementById("hpText").innerText = "100";
+
+  document.getElementById("message").innerText =
+    "🚀 Quest started! Defeat the Shadow Hacker!";
+
+  document.querySelector(".battle").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+</script>
+  enemyHP = 100;
+
+  document.getElementById("enemyHp").style.width = "100%";
+  document.getElementById("hpText").innerText = "100";
+
+  document.getElementById("message").innerText =
+    "🚀 Quest started! Defeat the Shadow Hacker!";
+
+  document.querySelector(".battle").scrollIntoView({
+    behavior: "smooth"
+  });
+  }
   enemyHP = 100;
 
   document.getElementById("enemyHp").style.width = "100%";
