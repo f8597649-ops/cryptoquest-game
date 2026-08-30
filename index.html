@@ -294,6 +294,7 @@ footer {
       <span>XP Progress</span>
       <span id="xp">680 / 1000</span>
     </div>
+
     <div class="bar">
       <div class="fill" id="xpFill"></div>
     </div>
@@ -308,8 +309,12 @@ footer {
       <h3>🔐 Blockchain Hunt</h3>
       <span class="reward">+50 🪙</span>
     </div>
+
     <p>Defeat the Shadow Hacker and secure the crypto vault.</p>
-    <button class="play-btn" onclick="startQuest()">Start Quest</button>
+
+    <button class="play-btn" onclick="startQuest()">
+      Start Quest
+    </button>
   </div>
 
   <div class="quest">
@@ -317,6 +322,7 @@ footer {
       <h3>💎 Hidden Wallet</h3>
       <span class="reward">+100 🪙</span>
     </div>
+
     <p>Find the legendary wallet hidden inside the digital kingdom.</p>
   </div>
 </section>
@@ -329,9 +335,13 @@ footer {
     <div class="enemy-hp" id="enemyHp"></div>
   </div>
 
-  <div>Enemy HP: <span id="hpText">100</span></div>
+  <div>
+    Enemy HP: <span id="hpText">100</span>
+  </div>
 
-  <button class="attack-btn" onclick="attack()">⚔ ATTACK</button>
+  <button class="attack-btn" onclick="attack()">
+    ⚔ ATTACK
+  </button>
 
   <div class="message" id="message">
     Prepare for battle!
@@ -339,18 +349,22 @@ footer {
 </div>
 
 <div class="stats">
+
   <div class="stat">
     <b id="battles">12</b>
     <span>Battles</span>
   </div>
+
   <div class="stat">
     <b id="wins">8</b>
     <span>Wins</span>
   </div>
+
   <div class="stat">
     <b>5</b>
     <span>Rank</span>
   </div>
+
 </div>
 
 <footer>
@@ -373,96 +387,18 @@ function attack() {
   }
 
   let damage = Math.floor(Math.random() * 20) + 10;
+
   enemyHP -= damage;
 
-  if (enemyHP < 0) enemyHP = 0;
-
-  document.getElementById("enemyHp").style.width = enemyHP + "%";
-  document.getElementById("hpText").innerText = enemyHP;
-
-  if (enemyHP === 0) {
-    coins += 50;
-    wins++;
-    battles++;
-
-    document.getElementById("coins").innerText = coins;
-    document.getElementById("wins").innerText = wins;
-    document.getElementById("battles").innerText = battles;
-
-    document.getElementById("message").innerText =
-      "🎉 Victory! You defeated the Shadow Hacker and earned 50 coins!";
-  } else {
-    document.getElementById("message").innerText =
-      "⚔ You dealt " + damage + " damage!";
-  }
-}
-
-function startQuest() {
-  enemyHP = 100;
-</div>
-
-<script>
-let coins = 250;
-let enemyHP = 100;
-let battles = 12;
-let wins = 8;
-
-function attack() {
-  if (enemyHP <= 0) {
-    document.getElementById("message").innerText =
-      "The enemy is already defeated! Start a new battle.";
-    return;
+  if (enemyHP < 0) {
+    enemyHP = 0;
   }
 
-  let damage = Math.floor(Math.random() * 20) + 10;
-  enemyHP -= damage;
+  document.getElementById("enemyHp").style.width =
+    enemyHP + "%";
 
-  if (enemyHP < 0) enemyHP = 0;
-
-  document.getElementById("enemyHp").style.width = enemyHP + "%";
-  document.getElementById("hpText").innerText = enemyHP;
-
-  if (enemyHP === 0) {
-    coins += 50;
-    wins++;
-    battles++;
-
-    document.getElementById("coins").innerText = coins;
-    document.getElementById("wins").innerText = wins;
-    document.getElementById("battles").innerText = battles;
-
-    document.getElementById("message").innerText =
-      "🎉 Victory! You defeated the Shadow Hacker and earned 50 coins!";
-  } else {
-    document.getElementById("message").innerText =
-      "⚔ You dealt " + damage + " damage!";
-  }
-}
-
-function startQuest() {
-  enemyHP = 100;
-</div>
-
-<script>
-let coins = 250;
-let enemyHP = 100;
-let battles = 12;
-let wins = 8;
-
-function attack() {
-  if (enemyHP <= 0) {
-    document.getElementById("message").innerText =
-      "The enemy is already defeated! Start a new battle.";
-    return;
-  }
-
-  let damage = Math.floor(Math.random() * 20) + 10;
-  enemyHP -= damage;
-
-  if (enemyHP < 0) enemyHP = 0;
-
-  document.getElementById("enemyHp").style.width = enemyHP + "%";
-  document.getElementById("hpText").innerText = enemyHP;
+  document.getElementById("hpText").innerText =
+    enemyHP;
 
   if (enemyHP === 0) {
     coins += 50;
@@ -485,7 +421,9 @@ function startQuest() {
   enemyHP = 100;
 
   document.getElementById("enemyHp").style.width = "100%";
+
   document.getElementById("hpText").innerText = "100";
+
   document.getElementById("message").innerText =
     "🚀 Quest started! Defeat the Shadow Hacker!";
 }
@@ -493,21 +431,3 @@ function startQuest() {
 
 </body>
 </html>
-  document.getElementById("enemyHp").style.width = "100%";
-  document.getElementById("hpText").innerText = "100";
-  document.getElementById("message").innerText =
-    "🚀 Quest started! Defeat the Shadow Hacker!";
-}
-</script>
-
-</body>
-</html>
-  document.getElementById("enemyHp").style.width = "100%";
-  document.getElementById("hpText").innerText = "100";
-  document.getElementById("message").innerText =
-    "🚀 Quest started! Defeat the Shadow Hacker!";
-}
-</script>
-
-</body>
-    </html>
